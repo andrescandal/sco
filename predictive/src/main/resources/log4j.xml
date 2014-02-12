@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//LOGGER" "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	
+	<!-- log all logs to a separate log file every day -->
+  <appender name="createFile" class="org.apache.log4j.RollingFileAppender">
+    <param name="File"  value="c:\\gw-neotel\\logs\\gw-neotel.log" />
+    <param name="MaxFileSize" value="10MB"/>
+	<param name="MaxBackupIndex" value="10"/> 
+    <param name="datePattern" value="'.'yyyy-MM-dd" />
+    <param name="append" value="true" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d [%t] %-5p %C{6} (%F:%L) - %m%n"/>
+    </layout>
+  </appender>
+	
+
+	<logger name="com.ceop.pd">
+		<level value="all" />
+		<appender-ref ref="createFile" />
+	</logger>
+	
+	
+	<root>
+		<priority value="all" />
+		<appender-ref ref="createFile" />
+	</root>
+
+
+</log4j:configuration>
