@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="sports-services" soapui-version="4.6.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="SportsServiceApiPortBinding" type="wsdl" bindingName="{http://api.sportsservice.sco.ac.com/}SportsServiceApiPortBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8086/sco-service-sports/sports-services.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8086/sco-service-sports/sports-services.wsdl"><con:part><con:url>http://localhost:8086/sco-service-sports/sports-services.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://api.sportsservice.sco.ac.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sportsservice="http://api.sportsservice.sco.ac.com/">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://api.sportsservice.sco.ac.com/">
+      <xs:import schemaLocation="ns0.xsd"/>
+      <xs:element name="getMatchEvents" type="sportsservice:getMatchEvents"/>
+      <xs:complexType name="getMatchEvents">
+        <xs:annotation>
+          <xs:documentation>doc/lit request wrapper for operation "getMatchEvents". (Returns all the events for a given match.)</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="matchId" type="xs:long" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>the matchId</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="userKey" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>the userKey for authenticating in the service</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMatchEventsResponse" type="sportsservice:getMatchEventsResponse"/>
+      <xs:complexType name="getMatchEventsResponse">
+        <xs:annotation>
+          <xs:documentation>doc/lit response wrapper for operation "getMatchEvents". (Returns all the events for a given match.)</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="return" type="matchEventsSportApiOutput" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>MatchEventsSportApiOutput with the match info and current events for the requested match.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getTournamentMatchs" type="sportsservice:getTournamentMatchs"/>
+      <xs:complexType name="getTournamentMatchs">
+        <xs:annotation>
+          <xs:documentation>doc/lit request wrapper for operation "getTournamentMatchs". (Returns all the matches in a given tournament.)</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="tournamentId" type="xs:long" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>the tournamentId</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="userKey" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>the userKey for authenticating in the service</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getTournamentMatchsResponse" type="sportsservice:getTournamentMatchsResponse"/>
+      <xs:complexType name="getTournamentMatchsResponse">
+        <xs:annotation>
+          <xs:documentation>doc/lit response wrapper for operation "getTournamentMatchs". (Returns all the matches in a given tournament.)</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="return" type="tournamentMatchsSportApiOutput" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>TournamentMatchsSportApiOutput with the available matches in the requested tournament.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getTournaments" type="sportsservice:getTournaments"/>
+      <xs:complexType name="getTournaments">
+        <xs:annotation>
+          <xs:documentation>doc/lit request wrapper for operation "getTournaments". (Returns all the tournaments that can be viewed in the system.)</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="userKey" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>the userKey for authenticating in the service</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getTournamentsResponse" type="sportsservice:getTournamentsResponse"/>
+      <xs:complexType name="getTournamentsResponse">
+        <xs:annotation>
+          <xs:documentation>doc/lit response wrapper for operation "getTournaments". (Returns all the tournaments that can be viewed in the system.)</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="return" type="tournamentsSportApiOutput" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>TournamentsSportApiOutput with the available tournaments.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="SportsServiceApi.getTournaments">
+    <wsdl:documentation>request message for operation "getTournaments". (Returns all the tournaments that can be viewed in the system.)</wsdl:documentation>
+    <wsdl:part name="parameters" element="sportsservice:getTournaments"/>
+  </wsdl:message>
+  <wsdl:message name="SportsServiceApi.getTournamentsResponse">
+    <wsdl:documentation>response message for operation "getTournaments". (Returns all the tournaments that can be viewed in the system.)</wsdl:documentation>
+    <wsdl:part name="parameters" element="sportsservice:getTournamentsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SportsServiceApi.getTournamentMatchs">
+    <wsdl:documentation>request message for operation "getTournamentMatchs". (Returns all the matches in a given tournament.)</wsdl:documentation>
+    <wsdl:part name="parameters" element="sportsservice:getTournamentMatchs"/>
+  </wsdl:message>
+  <wsdl:message name="SportsServiceApi.getTournamentMatchsResponse">
+    <wsdl:documentation>response message for operation "getTournamentMatchs". (Returns all the matches in a given tournament.)</wsdl:documentation>
+    <wsdl:part name="parameters" element="sportsservice:getTournamentMatchsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SportsServiceApi.getMatchEvents">
+    <wsdl:documentation>request message for operation "getMatchEvents". (Returns all the events for a given match.)</wsdl:documentation>
+    <wsdl:part name="parameters" element="sportsservice:getMatchEvents"/>
+  </wsdl:message>
+  <wsdl:message name="SportsServiceApi.getMatchEventsResponse">
+    <wsdl:documentation>response message for operation "getMatchEvents". (Returns all the events for a given match.)</wsdl:documentation>
+    <wsdl:part name="parameters" element="sportsservice:getMatchEventsResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="SportsServiceApi">
+    <wsdl:documentation>The SportsServiceApi provides information for online sports activities.</wsdl:documentation>
+    <wsdl:operation name="getTournaments">
+      <wsdl:documentation>Returns all the tournaments that can be viewed in the system.</wsdl:documentation>
+      <wsdl:input message="sportsservice:SportsServiceApi.getTournaments"/>
+      <wsdl:output message="sportsservice:SportsServiceApi.getTournamentsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getTournamentMatchs">
+      <wsdl:documentation>Returns all the matches in a given tournament.</wsdl:documentation>
+      <wsdl:input message="sportsservice:SportsServiceApi.getTournamentMatchs"/>
+      <wsdl:output message="sportsservice:SportsServiceApi.getTournamentMatchsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getMatchEvents">
+      <wsdl:documentation>Returns all the events for a given match.</wsdl:documentation>
+      <wsdl:input message="sportsservice:SportsServiceApi.getMatchEvents"/>
+      <wsdl:output message="sportsservice:SportsServiceApi.getMatchEventsResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SportsServiceApiPortBinding" type="sportsservice:SportsServiceApi">
+    <wsdl:documentation>SOAP Binding for SportsServiceApi</wsdl:documentation>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="getTournaments">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTournamentMatchs">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMatchEvents">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SportsServiceApiService">
+    <wsdl:port name="SportsServiceApiPort" binding="sportsservice:SportsServiceApiPortBinding">
+      <soap:address location="http://localhost:8086/sco-service-sports/soap/SportsServiceApiService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8086/sco-service-sports/ns0.xsd</con:url><con:content><![CDATA[<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="sportsApiInput" type="sportsApiInput"/>
+  <xs:element name="groupDto" type="groupDto"/>
+  <xs:element name="tournamentsDto" type="tournamentsDto"/>
+  <xs:complexType name="apiResult">
+    <xs:sequence>
+      <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="errorDescription" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="authApiInput">
+    <xs:annotation>
+      <xs:documentation>Auth Info to validate authentication.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="userKey" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="matchEventsSportApiOutput">
+    <xs:complexContent>
+      <xs:extension base="sportsApiOutput">
+        <xs:sequence>
+          <xs:element name="matchDto" type="matchDto" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="sportsApiInput">
+    <xs:annotation>
+      <xs:documentation>Input dto.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="authInput" type="authApiInput" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sportsApiOutput">
+    <xs:annotation>
+      <xs:documentation>Output dto.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="apiResult" type="apiResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tournamentMatchsSportApiOutput">
+    <xs:complexContent>
+      <xs:extension base="sportsApiOutput">
+        <xs:sequence>
+          <xs:element name="tournamentDto" type="tournamentDto" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="tournamentsSportApiOutput">
+    <xs:complexContent>
+      <xs:extension base="sportsApiOutput">
+        <xs:sequence>
+          <xs:element name="tournamentsDto" type="tournamentsDto" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="eventDto">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="eventTypeDto" type="eventTypeDto" minOccurs="0"/>
+      <xs:element name="period" type="xs:int" minOccurs="0"/>
+      <xs:element name="minute" type="xs:int" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eventTypeDto">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="groupDto">
+    <xs:annotation>
+      <xs:documentation>GroupDto of matches, per group of teams, date, etc.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Group name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="matchs" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of matchs</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="match" type="matchDto" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>List of matchs</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="matchDto">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="team1" type="teamDto" minOccurs="0"/>
+      <xs:element name="team2" type="teamDto" minOccurs="0"/>
+      <xs:element name="placeDto" type="placeDto" minOccurs="0"/>
+      <xs:element name="eventList" type="eventDto" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="datetime" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="placeDto">
+    <xs:annotation>
+      <xs:documentation>Where Matches are played</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="teamDto">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tournamentDto">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Tournament Id.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tournamentTypeDto" type="tournamentTypeDto" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>TournamentType</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="name" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Tournament name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="initDate" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Init date MM/dd/YYYY format</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="endDate" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>End date MM/dd/YYYY format</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="groups" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Groups in the tournament, Might be only one group.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="group" type="groupDto" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Groups in the tournament, Might be only one group.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tournamentTypeDto">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tournamentsDto">
+    <xs:sequence>
+      <xs:element name="tournaments" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="tournament" type="tournamentDto" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8086/sco-service-sports/soap/SportsServiceApiService</con:endpoint><con:endpoint>http://50.16.230.157/sco-service-sports/soap/SportsServiceApiService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="getTournaments" bindingOperationName="getTournaments" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request ok"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://50.16.230.157/sco-service-sports/soap/SportsServiceApiService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://api.sportsservice.sco.ac.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <api:getTournaments>
+         <!--Optional:-->
+         <userKey>UwUZz1CXoDmaFWPNHFekp1kdJE3S8HRz</userKey>
+      </api:getTournaments>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://api.sportsservice.sco.ac.com/SportsServiceApi/getTournamentsRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request error"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8086/sco-service-sports/soap/SportsServiceApiService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://api.sportsservice.sco.ac.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <api:getTournaments>
+         <!--Optional:-->
+         <userKey>clave-error</userKey>
+      </api:getTournaments>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://api.sportsservice.sco.ac.com/SportsServiceApi/getTournamentsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getTournamentMatchs" bindingOperationName="getTournamentMatchs" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request ok"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://50.16.230.157/sco-service-sports/soap/SportsServiceApiService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://api.sportsservice.sco.ac.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <api:getTournamentMatchs>
+         <!--Optional:-->
+         <tournamentId>6</tournamentId>
+         <!--Optional:-->
+         <userKey>UwUZz1CXoDmaFWPNHFekp1kdJE3S8HRz</userKey>
+      </api:getTournamentMatchs>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://api.sportsservice.sco.ac.com/SportsServiceApi/getTournamentMatchsRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request error auth"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8086/sco-service-sports/soap/SportsServiceApiService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://api.sportsservice.sco.ac.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <api:getTournamentMatchs>
+         <!--Optional:-->
+         <tournamentId>1</tournamentId>
+         <!--Optional:-->
+         <userKey>1111111</userKey>
+      </api:getTournamentMatchs>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://api.sportsservice.sco.ac.com/SportsServiceApi/getTournamentMatchsRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request error id no existe"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8086/sco-service-sports/soap/SportsServiceApiService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://api.sportsservice.sco.ac.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <api:getTournamentMatchs>
+         <!--Optional:-->
+         <tournamentId>44</tournamentId>
+         <!--Optional:-->
+         <userKey>UwUZz1CXoDmaFWPNHFekp1kdJE3S8HRz</userKey>
+      </api:getTournamentMatchs>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://api.sportsservice.sco.ac.com/SportsServiceApi/getTournamentMatchsRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request error id no numerico"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8086/sco-service-sports/soap/SportsServiceApiService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://api.sportsservice.sco.ac.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <api:getTournamentMatchs>
+         <!--Optional:-->
+         <tournamentId>eeee</tournamentId>
+         <!--Optional:-->
+         <userKey>UwUZz1CXoDmaFWPNHFekp1kdJE3S8HRz</userKey>
+      </api:getTournamentMatchs>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://api.sportsservice.sco.ac.com/SportsServiceApi/getTournamentMatchsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getMatchEvents" bindingOperationName="getMatchEvents" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request ok"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://50.16.230.157/sco-service-sports/soap/SportsServiceApiService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://api.sportsservice.sco.ac.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <api:getMatchEvents>
+         <!--Optional:-->
+         <matchId>8</matchId>
+         <!--Optional:-->
+         <userKey>UwUZz1CXoDmaFWPNHFekp1kdJE3S8HRz</userKey>
+      </api:getMatchEvents>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://api.sportsservice.sco.ac.com/SportsServiceApi/getMatchEventsRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request error auth"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8086/sco-service-sports/soap/SportsServiceApiService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://api.sportsservice.sco.ac.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <api:getMatchEvents>
+         <!--Optional:-->
+         <matchId>2</matchId>
+         <!--Optional:-->
+         <userKey>33344</userKey>
+      </api:getMatchEvents>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://api.sportsservice.sco.ac.com/SportsServiceApi/getMatchEventsRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request error id no existe"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8086/sco-service-sports/soap/SportsServiceApiService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://api.sportsservice.sco.ac.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <api:getMatchEvents>
+         <!--Optional:-->
+         <matchId>9999999</matchId>
+         <!--Optional:-->
+         <userKey>UwUZz1CXoDmaFWPNHFekp1kdJE3S8HRz</userKey>
+      </api:getMatchEvents>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://api.sportsservice.sco.ac.com/SportsServiceApi/getMatchEventsRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request id no numerico"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8086/sco-service-sports/soap/SportsServiceApiService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://api.sportsservice.sco.ac.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <api:getMatchEvents>
+         <!--Optional:-->
+         <matchId>aaa</matchId>
+         <!--Optional:-->
+         <userKey>UwUZz1CXoDmaFWPNHFekp1kdJE3S8HRz</userKey>
+      </api:getMatchEvents>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://api.sportsservice.sco.ac.com/SportsServiceApi/getMatchEventsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

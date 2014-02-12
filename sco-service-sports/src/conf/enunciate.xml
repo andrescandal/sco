@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<enunciate label="sports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://enunciate.codehaus.org/schemas/enunciate-1.26.xsd">
+	<namespaces>
+		<namespace id="sportsservice" uri="http://api.sportsservice.sco.ac.com/" />
+	</namespaces>
+	<modules>
+		<!-- Docs -->
+		<docs splashPackage="com.ac.sco.sportsservice.api" title="SCO Sports Services"  disabled="false"
+		 includeDefaultDownloads="true" includeExampleXml="true" />
+		<xml>
+			<schema namespace="http://api.sportsservice.sco.ac.com/" file="sports-schema.xsd" />
+			<wsdl namespace="http://api.sportsservice.sco.ac.com/" file="sports-services.wsdl" />
+		</xml>
+		
+	</modules>
+
+</enunciate>
